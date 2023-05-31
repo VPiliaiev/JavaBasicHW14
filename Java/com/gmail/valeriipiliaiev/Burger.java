@@ -1,10 +1,12 @@
 package com.gmail.valeriipiliaiev;
+
 public class Burger {
     private String bun;
     private String meat;
     private String cheese;
     private String greens;
     private String mayo;
+    private int meatCount;
 
     public Burger(String bun, String meat, String cheese, String greens, String mayo) {
         this.bun = bun;
@@ -12,16 +14,20 @@ public class Burger {
         this.cheese = cheese;
         this.greens = greens;
         this.mayo = mayo;
+        this.meatCount = 1;
         System.out.println("Звичайний бургер: " + bun + ", " + meat + ", " + cheese + ", " + greens + ", " + mayo);
     }
+
     public Burger(String bun, String meat, String cheese, String greens) {
         this.bun = bun;
         this.meat = meat;
         this.cheese = cheese;
         this.greens = greens;
-        this.mayo = "";
+        this.mayo = null;
+        this.meatCount = 1;
         System.out.println("Дієтичний бургер: " + bun + ", " + meat + ", " + cheese + ", " + greens);
     }
+
     public Burger(String bun, String meat, String cheese, String greens, String mayo, int meatCount) {
         this.bun = bun;
         this.meat = meat;
