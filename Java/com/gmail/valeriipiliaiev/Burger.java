@@ -38,7 +38,7 @@ public class Burger {
         if (doubleMeat) {
             System.out.println("Бургер з подвійним м'ясом: " + bun + ", " + meat + ", " + cheese + ", " + greens + ", " + mayo);
         } else {
-            System.out.println("Бургер з подвійним м'ясом може включати тільки 2 куска м'яса");
+            System.out.println("Ви відмовились від подвійного мʼяса. Буде створено звичайний бургер!");
         }
     }
 
