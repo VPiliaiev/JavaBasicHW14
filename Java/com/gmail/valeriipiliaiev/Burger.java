@@ -6,7 +6,7 @@ public class Burger {
     private String cheese;
     private String greens;
     private String mayo;
-    private int meatCount;
+    private boolean doubleMeat;
 
     public Burger(String bun, String meat, String cheese, String greens, String mayo) {
         this.bun = bun;
@@ -14,7 +14,7 @@ public class Burger {
         this.cheese = cheese;
         this.greens = greens;
         this.mayo = mayo;
-        this.meatCount = 1;
+        this.doubleMeat = false;
         System.out.println("Звичайний бургер: " + bun + ", " + meat + ", " + cheese + ", " + greens + ", " + mayo);
     }
 
@@ -24,17 +24,18 @@ public class Burger {
         this.cheese = cheese;
         this.greens = greens;
         this.mayo = null;
-        this.meatCount = 1;
+        this.doubleMeat = false;
         System.out.println("Дієтичний бургер: " + bun + ", " + meat + ", " + cheese + ", " + greens);
     }
 
-    public Burger(String bun, String meat, String cheese, String greens, String mayo, int meatCount) {
+    public Burger(String bun, String meat, String cheese, String greens, String mayo, boolean doubleMeat) {
         this.bun = bun;
         this.meat = meat;
         this.cheese = cheese;
         this.greens = greens;
         this.mayo = mayo;
-        if (meatCount == 2) {
+        this.doubleMeat = doubleMeat;
+        if (doubleMeat) {
             System.out.println("Бургер з подвійним м'ясом: " + bun + ", " + meat + ", " + cheese + ", " + greens + ", " + mayo);
         } else {
             System.out.println("Бургер з подвійним м'ясом може включати тільки 2 куска м'яса");
@@ -61,14 +62,14 @@ public class Burger {
         return mayo;
     }
 
-    public int getMeatCount() {
-        return meatCount;
+    public boolean isDoubleMeat() {
+        return doubleMeat;
     }
 
     public static void main(String[] args) {
         Burger firstBurger = new Burger("Булочка", "М'ясо", "Сир", "Зелень", "Майонез");
         Burger secondBurger = new Burger("Булочка", "М'ясо", "Сир", "Зелень");
-        Burger thirdBurger = new Burger("Булочка", "М'ясо", "Сир", "Зелень", "Майонез", 2);
+        Burger thirdBurger = new Burger("Булочка", "М'ясо", "Сир", "Зелень", "Майонез", true);
 
         String firstBun = firstBurger.getBun();
         String firstMeat = firstBurger.getMeat();
@@ -81,7 +82,6 @@ public class Burger {
         System.out.println("Сир: " + firstCheese);
         System.out.println("Зелень: " + firstGreens);
         System.out.println("Майонез: " + firstMayo);
-
 
         String secondBun = secondBurger.getBun();
         String secondMeat = secondBurger.getMeat();
@@ -102,18 +102,17 @@ public class Burger {
         String thirdCheese = thirdBurger.getCheese();
         String thirdGreens = thirdBurger.getGreens();
         String thirdMayo = thirdBurger.getMayo();
-        int thirdMeatCount = thirdBurger.getMeatCount();
+        boolean thirdDoubleMeat = thirdBurger.isDoubleMeat();
         System.out.println("Інгредієнти третього бургера:");
         System.out.println("Булочка: " + thirdBun);
         System.out.println("М'ясо: " + thirdMeat);
         System.out.println("Сир: " + thirdCheese);
         System.out.println("Зелень: " + thirdGreens);
-        if (thirdMeatCount == 2) {
-            System.out.println("М'ясо: " + thirdMeatCount);
+        if (thirdDoubleMeat) {
+            System.out.println("М'ясо: 2");
         } else {
             System.out.println("Бургер з подвійним м'ясом може включати тільки 2 куска м'яса");
         }
-            System.out.println("Майонез: " + thirdMayo);
+        System.out.println("Майонез: " + thirdMayo);
     }
 }
-
